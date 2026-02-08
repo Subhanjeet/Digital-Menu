@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspord - Premium Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="menu-page">
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="brand">
+            <i class="fa-solid fa-utensils brand-icon"></i>
+            <h3>ASPORD</h3>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div class="table-info">
+                Table <span id="table-number">00</span>
+            </div>
+
+            <!-- Theme Switcher -->
+            <div class="theme-wrapper">
+                <button class="theme-btn" id="theme-btn" aria-label="Switch theme">
+                    <i class="fa-solid fa-palette"></i>
+                </button>
+                <div class="theme-options" id="theme-menu">
+                    <div class="theme-option" onclick="setTheme('light-fresh')">
+                        <div class="theme-color-preview" style="background: #f0fdf4; border: 1px solid #d1fae5;"></div>
+                        <span class="theme-label">Fresh</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('midnight')">
+                        <div class="theme-color-preview" style="background: #0B1120; border: 1px solid #334155;"></div>
+                        <span class="theme-label">Midnight</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('light-classic')">
+                        <div class="theme-color-preview" style="background: #ffffff; border: 1px solid #ccc;"></div>
+                        <span class="theme-label">Classic</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('light-warm')">
+                        <div class="theme-color-preview" style="background: #fcf8f2; border: 1px solid #e6dac8;"></div>
+                        <span class="theme-label">Warm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-container">
+        <div class="search-bar">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search for dishes...">
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <nav class="category-scroll" id="category-list">
+        <!-- Categories injected via JS -->
+    </nav>
+
+    <!-- Menu Grid -->
+    <main class="menu-grid" id="menu-grid">
+        <!-- Menu Items injected via JS -->
+    </main>
+
+    <!-- Cart Floating Bar (Hidden by default) -->
+    <div class="cart-floating-bar" id="cart-bar">
+        <div class="cart-info">
+            <span id="cart-count">0 Items</span>
+            <span class="dot">•</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <button class="view-cart-btn" onclick="openCart()">
+            View Order <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="modal-header">
+                <h3>Your Order</h3>
+                <button class="close-btn" onclick="closeCart()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart Items injected via JS -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="bill-row">
+                    <span>Total</span>
+                    <span class="total-price" id="modal-total">₹0</span>
+                </div>
+                <!-- Note: No payment logic, just placing the order -->
+                <button class="place-order-btn" onclick="placeOrder()">
+                    Confirm Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Message -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-box">
+            <div class="check-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3>Order Placed!</h3>
+            <p>Your food will be served shortly at Table <span id="success-table">--</span>.</p>
+            <button class="close-success-btn" onclick="closeSuccess()">Okay</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

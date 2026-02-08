@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Preference - Premium Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('qr-menu-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+
+<body class="welcome-page"> <!-- Reuse welcome page styles for background -->
+    <div class="welcome-container" style="max-width: 400px; padding: 1rem;">
+        <h2 class="fade-in-up" style="margin-bottom: 2rem;">What's your preference?</h2>
+
+        <div class="preference-options fade-in-up delay-1">
+            <a href="#" onclick="navigateToMenu('veg')" class="pref-card">
+                <div class="pref-icon veg-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h3>Vegetarian</h3>
+            </a>
+
+            <a href="#" onclick="navigateToMenu('non-veg')" class="pref-card">
+                <div class="pref-icon non-veg-icon">
+                    <i class="fa-solid fa-drumstick-bite"></i>
+                </div>
+                <h3>Non-Vegetarian</h3>
+            </a>
+
+            <a href="#" onclick="navigateToMenu('all')" class="pref-card accent">
+                <div class="pref-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <h3>Show All</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Background Animation Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <script>
+        function navigateToMenu(pref) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tableNum = urlParams.get('table') || '01';
+            window.location.href = `menu.html?table=${tableNum}&pref=${pref}`;
+        }
+    </script>
+</body>
+
+</html>
